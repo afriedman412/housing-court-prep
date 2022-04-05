@@ -1,36 +1,15 @@
-import requests
 from flask import Flask, request, render_template, send_file
 import zipfile
 import pandas as pd
 from data_format import format_queries
-import os
-
-if "app_token" in os.environ:
-    app_token = os.environ['app_token']
-else:
-    from config import app_token
-
-def q(json_, params,):
-    url_base = "https://data.cityofnewyork.us/resource/"
-    url = ''.join([url_base, json_, ".json"])
-    r = requests.get(
-        url, 
-        headers={'X-App-Token': app_token}, 
-        params=params)
-    print(r)
-    return r
+from helpers import q, format_queries
 
 app = Flask(__name__)
 
-# td = tableData()
 
 @app.route('/')
 def home():
     return render_template('form.html')
-
-@app.route('/download', methods=["POST"])
-def download_data():
-    return
 
 @app.route('/search', methods=["GET"])
 def search_endpoint():
@@ -88,7 +67,6 @@ def search_endpoint():
                  attachment_filename=f'{case_name}.zip',
                  as_attachment=True)
 
-    # render_template(
-    #     'data.html',
-    #     full_address=full_address,
-    #     page_data=page_data), 
+if __name__ == "__main__":
+    app.run()
+ 

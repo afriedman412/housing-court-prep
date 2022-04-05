@@ -1,3 +1,10 @@
+import requests
+import os
+if "APP_TOKEN" in os.environ:
+    app_token = os.environ['app_token']
+else:
+    from config import APP_TOKEN
+
 def format_queries(house_number, street_name, boro):
 
     boro = boro.upper()
@@ -60,3 +67,13 @@ def format_queries(house_number, street_name, boro):
     }
 
     return jsons, params
+
+def q(json_, params, app_token=APP_TOKEN):
+    url_base = "https://data.cityofnewyork.us/resource/"
+    url = ''.join([url_base, json_, ".json"])
+    r = requests.get(
+        url, 
+        headers={'X-App-Token': app_token}, 
+        params=params)
+    print(r)
+    return r

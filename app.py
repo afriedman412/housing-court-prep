@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, send_file
 import zipfile
 import pandas as pd
-from data_format import format_queries
 from helpers import q, format_queries
 
 app = Flask(__name__)

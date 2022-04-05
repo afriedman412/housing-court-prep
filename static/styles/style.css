@@ -1,0 +1,32 @@
+
+html {
+    font-family: "Lato", sans-serif;
+}
+
+div.wrapper {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: auto;
+    margin: auto;
+}
+
+span.address {
+    padding-left:10%;
+    font-weight: bolder;
+    font-size: larger;
+    color:maroon;
+}
+
+th.main {
+    color: forestgreen;
+    padding-bottom: 10px;
+}
+
+table.main {
+    padding-top:30px;
+    padding-bottom:30px;
+    text-align: center;
+    margin: auto;
+    width: 300px;
+}

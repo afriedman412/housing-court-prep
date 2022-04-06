@@ -1,7 +1,7 @@
 import requests
 import os
 if "APP_TOKEN" in os.environ:
-    app_token = os.environ['app_token']
+    app_token = os.environ['APP_TOKEN']
 else:
     from config import APP_TOKEN
 
